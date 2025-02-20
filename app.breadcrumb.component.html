@@ -1,0 +1,15 @@
+<nav class="layout-breadcrumb">
+  <ol class="flex">
+    <ng-container *ngFor="let breadcrumb of breadcrumbs$ | async; let last = last">
+      <li class="flex items-center">
+        <a [routerLink]="[breadcrumb.url]"
+           class="hover:underline"
+           [style.color]="last ? 'var(--primary-color)' : 'var(--secondary-color)'"
+           [class.font-semibold]="last">
+          {{ breadcrumb.label }}
+        </a>
+        <span *ngIf="!last" class="mx-2" [style.color]="'var(--secondary-color)'">></span>
+      </li>
+    </ng-container>
+  </ol>
+</nav>
